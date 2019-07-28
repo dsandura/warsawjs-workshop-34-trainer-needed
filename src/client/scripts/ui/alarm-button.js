@@ -1,8 +1,8 @@
 function setupUI() {
     console.log('alarm-button: setupUI');
-    const $alarm = document.body.querySelector('#btn');
+    const $alarm = document.querySelector('#btn');
     $alarm.addEventListener('click', () => {
-        sendMessage({ action: 'alarm'});
+        sendMessage({ action: 'alarm' });
     });
     
 }

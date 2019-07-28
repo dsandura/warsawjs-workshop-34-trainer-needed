@@ -1,4 +1,5 @@
 const ws = require('ws');
+const { verifyClient } = require('./services/verify-client');
 
 const path = require('path');
 
@@ -12,7 +13,7 @@ const setupServerHandler = require('./handlers/server.handler');
 
 const port = Number(process.env.PORT);
 
-const settings = { port };
+const settings = { port, verifyClient };
 
 const server = new ws.Server(settings);
 

@@ -7,12 +7,7 @@ module.exports = (socket) => {
 
     registerClient(socket);
 
-    socket.addEventListener('open', () => {
-        console.log('open');
-        
-    });
-
-    socket.addEventListener('message', (payload) => {
+    socket.on('message', (payload) => {
         try {
             const data = JSON.parse(payload);
             broadcast(socket, payload);
@@ -24,12 +19,12 @@ module.exports = (socket) => {
         }
     });
 
-    socket.addEventListener('close', () => {
+    socket.on('close', () => {
         console.log('close');
         deleteClient(socket);
     });
 
-    socket.addEventListener('error', (err) => {
+    socket.on('error', (err) => {
         console.log('error', err);
         deleteClient(socket);
     });
